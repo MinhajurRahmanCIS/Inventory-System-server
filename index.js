@@ -13,8 +13,8 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 
 async function run() {
     try {
-        const productCollection = client.db('foodie').collection('products');
-        const cartCollection = client.db('foodie').collection('carts');
+        const productCollection = client.db('inventory').collection('products');
+        const cartCollection = client.db('inventory').collection('carts');
 
         //product add
 

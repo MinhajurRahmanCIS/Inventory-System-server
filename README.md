@@ -1,5 +1,5 @@
 # Created By TEAM RUNTIME TERROR!
-This is a cloud kitchen Foodie Service Website.
+This is a Inventory System Website.
 ## Members  –
 1.     Minhajur Rahman  
 2.     Kashpia Hasan Orpa
@@ -9,7 +9,6 @@ This is a cloud kitchen Foodie Service Website.
 ## Project Name : `Inventory System`
 Project Deploy Site For Client side: https://peppy-puppy-3b54cb.netlify.app \
 Project Deploy Site For Server side: https://inventory-server-nine.vercel.app
-
 
 Project Repository Link For Client side: https://github.com/MinhajurRahmanCIS/Inventory-System \
 Project Repository Link For Server side: https://github.com/MinhajurRahmanCIS/Inventory-System-server
