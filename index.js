@@ -13,42 +13,42 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 
 async function run() {
     try {
-        const serviceCollection = client.db('foodie').collection('services');
-        const reviewCollection = client.db('foodie').collection('reviews');
+        const productCollection = client.db('foodie').collection('products');
+        const cartCollection = client.db('foodie').collection('carts');
 
-        //Service add
+        //product add
 
-        app.post('/services', async (req, res) => {
-            const service = req.body;
-            const result = await serviceCollection.insertOne(service);
+        app.post('/products', async (req, res) => {
+            const product = req.body;
+            const result = await productCollection.insertOne(product);
             res.send(result);
         });
 
-        //Service APi
-        app.get('/services', async (req, res) => {
+        //product APi
+        app.get('/products', async (req, res) => {
             const query = {}
-            const cursor = serviceCollection.find(query);
-            const services = await cursor.toArray();
-            res.send(services);
+            const cursor = productCollection.find(query);
+            const products = await cursor.toArray();
+            res.send(products);
         });
 
-        app.get('/displayService', async (req, res) => {
+        app.get('/displayproduct', async (req, res) => {
             const query = {}
-            const cursor = serviceCollection.find(query);
-            const services = await cursor.limit(3).toArray();
-            res.send(services);
+            const cursor = productCollection.find(query);
+            const products = await cursor.limit(3).toArray();
+            res.send(products);
         });
 
-        app.get('/services/:id', async (req, res) => {
+        app.get('/products/:id', async (req, res) => {
             const id = req.params.id;
             const query = { _id: ObjectId(id) };
-            const service = await serviceCollection.findOne(query);
-            res.send(service);
+            const product = await productCollection.findOne(query);
+            res.send(product);
         });
 
 
-        // reviews api
-        app.get('/reviews', async (req, res) => {
+        // carts api
+        app.get('/carts', async (req, res) => {
             let query = {};
 
             if (req.query.email) {
@@ -57,46 +57,46 @@ async function run() {
                 }
             }
 
-            const cursor = reviewCollection.find(query).sort( { "price": 1 } );
-            const reviews = await cursor.toArray();
-            res.send(reviews);
+            const cursor = cartCollection.find(query).sort( { "price": 1 } );
+            const carts = await cursor.toArray();
+            res.send(carts);
         });
 
-        //Review add
+        //cart add
 
-        app.post('/reviews', async (req, res) => {
-            const review = req.body;
-            const result = await reviewCollection.insertOne(review);
+        app.post('/carts', async (req, res) => {
+            const cart = req.body;
+            const result = await cartCollection.insertOne(cart);
             res.send(result);
         });
 
-        //Review delete
-        app.delete('/reviews/:id', async (req, res) => {
+        //cart delete
+        app.delete('/carts/:id', async (req, res) => {
             const id = req.params.id;
             const query = { _id: ObjectId(id) };
-            const result = await reviewCollection.deleteOne(query);
+            const result = await cartCollection.deleteOne(query);
             res.send(result);
         })
 
-        app.get('/reviews/:id', async (req, res) => {
+        app.get('/carts/:id', async (req, res) => {
             const id = req.params.id;
             const query = { _id: ObjectId(id) };
-            const review = await reviewCollection.findOne(query);
-            res.send(review);
+            const cart = await cartCollection.findOne(query);
+            res.send(cart);
         });
 
-        app.put('/reviews/:id', async (req, res) => {
+        app.put('/carts/:id', async (req, res) => {
             const id = req.params.id;
             const filter = { _id: ObjectId(id) };
-            const review = req.body;
-            console.log(review)
+            const cart = req.body;
+            console.log(cart)
             const option = {upsert: true};
-            const updatedReview = {
+            const updatedcart = {
                 $set: {
-                    msg: review.msg
+                    msg: cart.msg
                 }
             }
-            const result = await reviewCollection.updateOne(filter, updatedReview, option);
+            const result = await cartCollection.updateOne(filter, updatedcart, option);
             res.send(result);
         })
     }
