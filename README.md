@@ -18,5 +18,5 @@ Project Repository Link For Server side: https://github.com/MinhajurRahmanCIS/In
 This is a Inventory System Server Side.
 ## Technologies  –
 1.     Using express js.  
-2.     Using for storing MongoDB.
+2.     Using MongoDB for storing data.
 3.     Using env for hiding configuration.
