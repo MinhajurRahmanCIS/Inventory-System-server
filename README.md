@@ -14,7 +14,7 @@ Project Repository Link For Client side: https://github.com/MinhajurRahmanCIS/In
 Project Repository Link For Server side: https://github.com/MinhajurRahmanCIS/Inventory-System-server
 
 # Project Info
-This is a Inventory System Server Side.
+This is an Inventory System Server Side.
 ## Technologies  –
 1.     Using express js.  
 2.     Using MongoDB for storing data.
