@@ -1,5 +1,5 @@
 # Created By TEAM RUNTIME TERROR!
-This is a cloud kitchen Foodie Service Website.
+This is a Inventory System Website.
 ## Members  –
 1.     Minhajur Rahman  
 2.     Kashpia Hasan Orpa
